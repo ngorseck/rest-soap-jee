@@ -1,0 +1,12 @@
+com\samanecorp\soap1Client\wsdl\Save.class
+com\samanecorp\soap1Client\wsdl\CalculatorWebServiceImplService.class
+com\samanecorp\soap1Client\wsdl\package-info.class
+com\samanecorp\soap1Client\Main.class
+com\samanecorp\soap1Client\wsdl\Minus.class
+com\samanecorp\soap1Client\wsdl\ObjectFactory.class
+com\samanecorp\soap1Client\wsdl\UserDto.class
+com\samanecorp\soap1Client\wsdl\CalculatorWebServiceImpl.class
+com\samanecorp\soap1Client\wsdl\MinusResponse.class
+com\samanecorp\soap1Client\wsdl\AddResponse.class
+com\samanecorp\soap1Client\wsdl\SaveResponse.class
+com\samanecorp\soap1Client\wsdl\Add.class

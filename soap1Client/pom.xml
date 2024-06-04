@@ -1,0 +1,92 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.samanecorp</groupId>
+  <artifactId>soap1Client</artifactId>
+  <packaging>war</packaging>
+  <version>0.0.1-SNAPSHOT</version>
+  <name>soap1Client Maven Webapp</name>
+  <url>http://maven.apache.org</url>
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.target>17</maven.compiler.target>
+    <maven.compiler.source>17</maven.compiler.source>
+    <junit.version>5.9.2</junit.version>
+   </properties>
+   
+  <dependencies>
+     <dependency>
+      <groupId>jakarta.servlet</groupId>
+      <artifactId>jakarta.servlet-api</artifactId>
+      <version>5.0.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>jakarta.jws</groupId>
+      <artifactId>jakarta.jws-api</artifactId>
+      <version>3.0.0</version>
+    </dependency>
+
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>${junit.version}</version>
+      <scope>test</scope>
+    </dependency>
+    <dependency>
+        <groupId>org.junit.jupiter</groupId>
+        <artifactId>junit-jupiter-engine</artifactId>
+        <version>${junit.version}</version>
+        <scope>test</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>com.sun.xml.ws</groupId>
+      <artifactId>jaxws-rt</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.ws/jaxws-tools -->
+    <dependency>
+      <groupId>com.sun.xml.ws</groupId>
+      <artifactId>jaxws-tools</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/com.sun.xml.ws/servlet -->
+    <dependency>
+      <groupId>com.sun.xml.ws</groupId>
+      <artifactId>servlet</artifactId>
+      <version>4.0.0</version>
+    </dependency>
+  </dependencies>
+  
+  <build>
+    <finalName>soap1Client</finalName>
+    <plugins>
+		<plugin>
+			<groupId>com.sun.xml.ws</groupId>
+			<artifactId>jaxws-maven-plugin</artifactId>
+			<version>3.0.0</version>
+			<executions>
+				<execution>
+					<goals>
+                        <!-- $ wsimport -keep -p packages wsdl_url -->
+						<goal>wsimport</goal>
+					</goals>
+				</execution>
+			</executions>
+			<configuration>
+				<packageName>com.samanecorp.soap1Client.wsdl</packageName>
+				<wsdlUrls>
+					<wsdlUrl>http://localhost:8080/soap1/calculatorWebService?wsdl</wsdlUrl>
+				</wsdlUrls>
+				<sourceDestDir>${sourcesDir}</sourceDestDir>
+				<destDir>${classesDir}</destDir>
+				<extension>true</extension>
+			</configuration>
+		</plugin>
+	</plugins>
+  </build>
+</project>
